@@ -1,24 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Love || Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 700px) {
+            html {
+                font-size: 50%;
+            }
+        }
+
+        body {
+            background-image: url(bgp.jpg);
+            background-size: cover;
+
+            background-repeat: no-repeat;
+        }
+
+        .form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .txt {
+            width: 250px;
+            height: 40px;
+            border: 1px solid pink;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            margin: 10px 20px;
+        }
+
+        .card ul {
+            border-radius: 30px;
+        }
+
+        .card {
+            width: 40rem;
+            border: none;
+        }
+
+        .check {
+            width: 150px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: green;
+            color: white;
+            border: 0;
+        }
+
+        .love {
+            text-align: center;
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid pink;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>HTML challange</h1>
-    <hr size="2">
-    <a href="https://developer.mozilla.org/en-US/">Link to MDN Documentation</a>
-    <table>
-        <tr>
-            <td>One</td>
-            <td>Two</td>
-        </tr>
-        <tr>
-            <td>Three</td>
-            <td>Four</td>
-        </tr>
-    </table>
+    <div class="head">
+        <div class="form">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="background-color: rgb(243, 36, 36); color: white;">Calculate Your
+                        Love</li><br>
+                    <li class="list-group-item">
+                        <input type="text" placeholder="Your Name" class="txt" id="name">
+                        <input type="text" placeholder="Your Love Name" class="txt" id="lname"><br><br>
+                        <input class="check" type="button" value="Check" id="click">
+                        <input class="love" type="text" id="lovedata" placeholder="love %"><br><br>
+                    </li>
+                    <li class="list-group-item" style="background-color: rgb(30, 30, 243); color: white;">True love
+                        stories never have endings.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("click").onclick = function () {
+            var name = document.getElementById('name').value;
+            var lname = document.getElementById('lname').value;
+            if (name == "") {
+                alert("please enter your name");
+            }
+            else if (name.length <= 2) {
+                alert("Min length is 3");
+            }
+            else if (!isNaN(name)) {
+                alert("only charcter");
+            }
+            else if (lname == "") {
+                alert("please enter your love name");
+            }
+            else if (lname.length <= 2) {
+                alert("Min length is 3");
+            }
+            else if (!isNaN(lname)) {
+                alert("only charcter");
+            }
+            else {
+                var Percent = Math.floor(Math.random() * 100);
+                document.getElementById('lovedata').value = Percent + "%";
+            }
+
+        }
+    </script>
 </body>
+
 </html>
